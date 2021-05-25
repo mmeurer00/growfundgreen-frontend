@@ -12,11 +12,11 @@ class GrowFundGreenAdapter {
         .then(campaigns => {
             campaigns.forEach(campaign => {
                 const c = new Campaign(campaign)
-                c.addToDom
+                c.addToDom()
             })
             
         })
-        //.catch(error => console.error(erorr))
+        .catch(error => console.error(erorr))
         // function fetchCampaigns(){
         //     fetch("http://127.0.0.1:3000/api/v1/campaigns")
         //     .then(r => r.json())
