@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function addCreateForm(){
     const formContainer = document.getElementById("form-container")
     const form = document.createElement('form')
-    form.innerHTML = `<input id="name-input" placeholder='name' type='text'/><br><input id="campaign-submit" value='Create Campaign' type='submit'/>`
+    form.innerHTML = `<input id="name-input" placeholder='name' type='text'/><br>
+        <input id="description-input" placeholder='description' type='text'/><br>
+        <input id="goal-input" placeholder='goal' type='text'/><br><input id="campaign-submit" value='Create Campaign' type='submit'/>`
     // const input = document.createElement('input');
     // input.setAttribute('type', 'text')
     // input.type = "text"

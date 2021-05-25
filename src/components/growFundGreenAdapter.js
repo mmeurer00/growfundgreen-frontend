@@ -14,9 +14,9 @@ class GrowFundGreenAdapter {
                 const c = new Campaign(campaign)
                 c.addToDom
             })
-            debugger
+            
         })
-        //.catch(error => console.log(erorr))
+        //.catch(error => console.error(erorr))
         // function fetchCampaigns(){
         //     fetch("http://127.0.0.1:3000/api/v1/campaigns")
         //     .then(r => r.json())
@@ -27,7 +27,7 @@ class GrowFundGreenAdapter {
         }
 
     editCampaign(editMode) {
-        fetch(`http://127.0.0.1:3000/api/v1/campaigns/${editMode.dataset.id}`, {
+        fetch(`${this.baseCampaignURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -40,6 +40,10 @@ class GrowFundGreenAdapter {
         .then(resp => resp.json())
         .then(data => {
             if (data.status === 204) {
+                editMode.children[0].innerText = data.campaign.name
+                editMode = false
+                document.getElementById('campaign-submit').value = "Create Campaign"
+                nameInput.value = ""
             } else {
                 alert(data.errors)
             }
@@ -48,7 +52,7 @@ class GrowFundGreenAdapter {
     }
 
     createCampaign(nameInput){
-        fetch("http://127.0.0.1:3000/api/v1/campaigns", {
+        fetch(this.baseCampaignURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -73,7 +77,7 @@ class GrowFundGreenAdapter {
     }
 
     deleteCampaign(li) {
-        fetch(`http://127.0.0.1:3000/api/v1/campaigns/${li.dataset.id}`, {
+        fetch(`${this.baseCampaignURL}/${li.dataset.id}`, {
             method: "DELETE"
         })
         .then(resp => {
@@ -90,6 +94,5 @@ class GrowFundGreenAdapter {
         })
         .catch(err => console.error(err))
     }
-
 }
 
