@@ -1,15 +1,22 @@
 class GrowFundGreenAdapter {
     
     constructor(baseURL="http://127.0.0.1:3000"){
-        this.baseURL = `${baseURL}/api/v1/campaigns`
+        this.baseCampaignURL = `${baseURL}/api/v1/campaigns`
         /* when creating a new campaign adpater object, 
         this is setting up the URL for the user */
     }
+
     getCampaigns() {
-        fetch(this.baseURL)
+        fetch(this.baseCampaignURL)
         .then(r => r.json())
-        .then(campaigns => console.log(campaigns))
-        .catch(error => console.log(erorr))
+        .then(campaigns => {
+            campaigns.forEach(campaign => {
+                const c = new Campaign(campaign)
+                c.addToDom
+            })
+            debugger
+        })
+        //.catch(error => console.log(erorr))
         // function fetchCampaigns(){
         //     fetch("http://127.0.0.1:3000/api/v1/campaigns")
         //     .then(r => r.json())
@@ -18,6 +25,7 @@ class GrowFundGreenAdapter {
         //     })
         //     .catch(err => console.warn(err))
         }
+
     editCampaign(editMode) {
         fetch(`http://127.0.0.1:3000/api/v1/campaigns/${editMode.dataset.id}`, {
             method: "PATCH",
