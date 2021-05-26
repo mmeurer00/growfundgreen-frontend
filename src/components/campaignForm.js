@@ -22,11 +22,13 @@ class CampaignForm {
     handleSubmit = (event) => {
         event.preventDefault()
         const nameInput = event.target[0]
+        const descInput = event.target[1]
+        const goalInput = event.target[2]
         if(editMode) {
-            growFundGreenAdapter.editCampaign(editMode, nameInput)
+            growFundGreenAdapter.editCampaign(editMode, nameInput, descInput, goalInput)
         }
         else {
-            growFundGreenAdapter.createCampaign(nameInput)
+            growFundGreenAdapter.createCampaign(nameInput, descInput, goalInput)
         }
     }
     listenEditDelete(){
@@ -46,6 +48,8 @@ class CampaignForm {
             document.getElementById('campaign-submit').value = "Update"
             // populate input with name of campaign
             document.getElementById('name-input').value = li.children[0].innerText
+            document.getElementById('description-input').value = li.children[1].innerText            
+            document.getElementById('goal-input').value = li.children[2].innerText
             // submit edit button, update campaign (in different function)
         }
     }

@@ -26,7 +26,10 @@ class GrowFundGreenAdapter {
         //     .catch(err => console.warn(err))
         }
 
-    editCampaign(nameInput, editMode) {
+    editCampaign(editMode) {
+        let nameInput = document.getElementById("name-input")
+        let descInput = document.getElementById("description-input")
+        let goalInput = document.getElementById("goal-input")
         fetch(`${this.baseCampaignURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -34,16 +37,23 @@ class GrowFundGreenAdapter {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                name: nameInput.value
+                name: nameInput.value,
+                description: descInput.value,
+                goal: goalInput.value
             })
         })
         .then(resp => resp.json())
         .then(data => {
             if (data.status === 204) {
-                editMode.children[0].innerText = data.campaign.name
+                editMode.children[0].innerText = 
+                    data.campaign.name, 
+                    data.campaign.description,
+                    data.campaign.goal
                 editMode = false
                 document.getElementById('campaign-submit').value = "Create Campaign"
                 nameInput.value = ""
+                descInput.value = ""
+                goalInput.value = ""
             } else {
                 alert(data.errors)
             }
@@ -51,7 +61,7 @@ class GrowFundGreenAdapter {
         .catch(err => console.error(err))
     }
 
-    createCampaign(nameInput){
+    createCampaign(nameInput, descInput, goalInput){
         fetch(this.baseCampaignURL, {
             method: "POST",
             headers: {
@@ -59,7 +69,9 @@ class GrowFundGreenAdapter {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                name: nameInput.value
+                name: nameInput.value, 
+                description: descInput.value,
+                goal: goalInput.value
             })   
         })
         .then(resp => resp.json())
@@ -72,6 +84,8 @@ class GrowFundGreenAdapter {
                 alert(data.errors)
             }
             nameInput.value = ""
+            descInput.value = ""
+            goalInput.value = ""
         })
        .catch(err => console.error("I'm in the catch!", err))
     }
