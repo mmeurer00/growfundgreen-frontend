@@ -1,6 +1,6 @@
 class Campaign {
 
-    static all = []
+    //static all = []
      
     constructor({id, name, description, goal, created_at} ){
         this.id = id
@@ -9,7 +9,7 @@ class Campaign {
         this.goal = goal
         this.created_at = created_at
 
-        Campaign.all.push(this)
+        //Campaign.all.push(this)
     }
     
 

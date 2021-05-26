@@ -16,7 +16,7 @@ class GrowFundGreenAdapter {
             })
             
         })
-        .catch(error => console.error(erorr))
+        //.catch(error => console.error(erorr))
         // function fetchCampaigns(){
         //     fetch("http://127.0.0.1:3000/api/v1/campaigns")
         //     .then(r => r.json())
