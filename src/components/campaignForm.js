@@ -1,16 +1,22 @@
 class CampaignForm {
+
+    constructor() {
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleEditDelete = this.handleEditDelete.bind(this)
+    }
+
     addCreateForm(){
         const formContainer = document.getElementById("form-container")
         const form = document.createElement('form')
-        form.innerHTML = `<input id="name-input" placeholder='name' type='text'/><br><input id="campaign-submit" value='Create Campaign' type='submit'/>`
-            // <input id="description-input" placeholder='description' type='text'/><br>
-           // <input id="goal-input" placeholder='goal' type='text'/><br><input id="campaign-submit" value='Create Campaign' type='submit'/>`
+        form.innerHTML = `<input id="name-input" placeholder='name' type='text'/>
+            <input id="description-input" placeholder='description' type='text'/><br>
+            <input id="goal-input" placeholder='goal' type='text'/><br><input id="campaign-submit" value='Create Campaign' type='submit'/>`
         // const input = document.createElement('input');
         // input.setAttribute('type', 'text')
         // input.type = "text"
         formContainer.append(form)
     
-        form.addEventListener("submit", handleSubmit)
+        form.addEventListener("submit", this.handleSubmit)
     }
     //if passing an even listener, make an arrow function
     handleSubmit = (event) => {
@@ -21,6 +27,26 @@ class CampaignForm {
         }
         else {
             growFundGreenAdapter.createCampaign(nameInput)
+        }
+    }
+    listenEditDelete(){
+        const campaignsContainer = document.getElementById("campaigns-container");
+        campaignsContainer.addEventListener("click", this.handleEditDelete)
+    }
+    
+    handleEditDelete(e){
+        const li = e.target.parentElement
+        if (e.target.dataset.action === "delete"){
+            // delete this campaign from backend
+            growFundGreenAdapter.deleteCampaign(li)
+        } else if (e.target.dataset.action === "edit") {
+            // editmode -> li
+            editMode = li
+            // button -> updatecampaign
+            document.getElementById('campaign-submit').value = "Update"
+            // populate input with name of campaign
+            document.getElementById('name-input').value = li.children[0].innerText
+            // submit edit button, update campaign (in different function)
         }
     }
 }

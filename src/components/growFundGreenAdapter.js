@@ -26,7 +26,7 @@ class GrowFundGreenAdapter {
         //     .catch(err => console.warn(err))
         }
 
-    editCampaign(editMode) {
+    editCampaign(nameInput, editMode) {
         fetch(`${this.baseCampaignURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -73,7 +73,7 @@ class GrowFundGreenAdapter {
             }
             nameInput.value = ""
         })
-        .catch(err => console.error("I'm in the catch!", err))
+       .catch(err => console.error("I'm in the catch!", err))
     }
 
     deleteCampaign(li) {

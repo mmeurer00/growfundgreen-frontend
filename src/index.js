@@ -1,11 +1,11 @@
 let editMode = false
 const growFundGreenAdapter = new GrowFundGreenAdapter("http://127.0.0.1:3000")
-
+const campaignForm = new CampaignForm
 
 document.addEventListener("DOMContentLoaded", () => {
-    Campaign.addCreateForm()
+    campaignForm.addCreateForm()
     growFundGreenAdapter.getCampaigns()
-    listenEditDelete()
+    campaignForm.listenEditDelete()
 })
 
 // function addCreateForm(){
@@ -34,21 +34,4 @@ document.addEventListener("DOMContentLoaded", () => {
 // }
 
 // could put in campaign class 
-function listenEditDelete() {
-    const campaignsContainer = document.getElementById("campaigns-container")
-    campaignsContainer.addEventListener("click", handleEditDelete)
-}
-
-function handleEditDelete(e){
-    const li = e.target.parentElement
-    if (e.target.dataset.action === "delete"){
-        growFundGreenAdapter.deleteCampaign(li)
-    }
-    else if (e.target.dataset.action === "edit") {
-
-    editMode = li
-
-    document.getElementById("campaign-submit")
-    document.getElementById("name-input")
-    }
-}
+//  
