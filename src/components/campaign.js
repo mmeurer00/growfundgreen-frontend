@@ -39,6 +39,7 @@ class Campaign {
 
             this.donations.forEach(d => ul.innerHTML += d.render())
             li.append(ul)
+            currentDonations = ul 
         }
     }
 }

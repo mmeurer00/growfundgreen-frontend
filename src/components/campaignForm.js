@@ -54,9 +54,15 @@ class CampaignForm {
             // submit edit button, update campaign (in different function)
         }
         else if(action === "display") {
-            console.log("Displaying Donations")
+            if(currentDonations) {
+                currentDonations.style.display=`none`
+                currentDonations = false
+            }
+            else {
+            console.log(!!currentDonations)
             const c = Campaign.all.find(c => c.id == li.dataset.id )
             c.renderDonations()
+            }
         }
     }
 }
