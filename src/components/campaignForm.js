@@ -38,10 +38,11 @@ class CampaignForm {
     
     handleEditDelete(e){
         const li = e.target.parentElement
-        if (e.target.dataset.action === "delete"){
+        const action = e.target.dataset.action
+        if (action === "delete"){
             // delete this campaign from backend
             growFundGreenAdapter.deleteCampaign(li)
-        } else if (e.target.dataset.action === "edit") {
+        } else if (action === "edit") {
             // editmode -> li
             editMode = li
             // button -> updatecampaign
@@ -51,6 +52,11 @@ class CampaignForm {
             document.getElementById('description-input').value = li.children[1].innerText            
             document.getElementById('goal-input').value = li.children[2].innerText
             // submit edit button, update campaign (in different function)
+        }
+        else if(action === "display") {
+            console.log("Displaying Donations")
+            const c = Campaign.all.find(c => c.id == li.dataset.id )
+            c.renderDonations()
         }
     }
 }
