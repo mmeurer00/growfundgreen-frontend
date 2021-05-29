@@ -20,6 +20,7 @@ class Campaign {
             <span>${this.description}</span> 
             <span>${this.goal}</span> 
             <button data-action='display'>Display Donations</button>
+            <button data-action='donate'>Donate</button>
             <button data-action='edit'>Edit</button> 
             <button data-action='delete'>X</button>
         </li>`

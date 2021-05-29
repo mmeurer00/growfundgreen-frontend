@@ -108,5 +108,33 @@ class GrowFundGreenAdapter {
         })
         .catch(err => console.error(err))
     }
+
+    createDonation(commentInput, priceInput, cId){
+        fetch(`${this.baseCampaignURL}/${cId}/donations`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                comment: commentInput.value, 
+                price: priceInput.value,
+            })   
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            console.log("I'm in the second then!", data)
+            if (data.status === 201){
+                const d = new Donation(data.donation)
+                d.addToDom()
+            } else {
+                alert(data.errors)
+            }
+            commentInput.value = ""
+            priceInput.value = ""
+        })
+       .catch(err => console.error("I'm in the catch!", err))
+    }
+
 }
 

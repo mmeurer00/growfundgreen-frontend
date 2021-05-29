@@ -64,5 +64,8 @@ class CampaignForm {
             c.renderDonations()
             }
         }
+        else if(action === "donate") {
+           new DonationForm(li).renderForm()
+        }
     }
 }
