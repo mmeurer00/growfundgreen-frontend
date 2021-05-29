@@ -55,6 +55,7 @@ class CampaignForm {
         }
         else if(action === "display") {
             if(currentDonations) {
+                console.log("none!")
                 currentDonations.style.display=`none`
                 currentDonations = false
             }
