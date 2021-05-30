@@ -25,7 +25,7 @@ class DonationForm  {
         console.log(cId)
         const dForm = document.createElement('form')
         dForm.id = `f-${cId}`
-        dForm.innerHTML = `<h2> Submit your Donation for ${cId}.</h2> <h3>Comment: <input id="comment-input-${cId}" placeholder='comment' type='text' class="text-input"/></h3>
+        dForm.innerHTML = `<h2> Submit your Donation for ${this.li.firstElementChild.innerHTML}.</h2> <h3>Comment: <input id="comment-input-${cId}" placeholder='comment' type='text' class="text-input"/></h3>
         <h3>Price: <input id="price-input-${cId}" placeholder='price' type='text' class="text-input"/></h3>
         <input id="donation-submit-${cId}" value='Donate' type='submit'/>`
         console.log(dForm)
