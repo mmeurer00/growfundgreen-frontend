@@ -64,8 +64,10 @@ class CampaignForm {
         }
         else if(action === "donate") {
             const donationF = document.getElementById(`f-${li.dataset.id}`)
+            const modal2 = document.querySelector(".modal-overlay2")
             if (!donationF) {
-                new DonationForm(li).renderForm()
+                modal2.classList.add("open-modal")
+                new DonationForm(li).addDonationForm()
             }
         }
     }

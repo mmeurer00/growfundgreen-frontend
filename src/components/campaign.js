@@ -19,10 +19,10 @@ class Campaign {
             <span>${this.name}</span>
             <span>${this.description}</span> 
             <span>${this.goal}</span> 
-            <button data-action='display'>Display Donations</button>
-            <button id="donate-button" data-action='donate'>Donate</button>
-            <button data-action='edit'>Edit</button> 
-            <button data-action='delete'>X</button>
+            <button data-action='display' class="btn modal-btn">Display Donations</button>
+            <button data-action='donate' class="btn modal-btn2">Donate</button>
+            <button data-action='edit' class="btn modal-btn">Edit</button> 
+            <button data-action='delete' class="btn modal-btn">X</button>
         </li>`
         )
     }
