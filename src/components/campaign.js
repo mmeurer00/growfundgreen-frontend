@@ -15,12 +15,12 @@ class Campaign {
 
     render() {
         // getting html
-        return(`<li id="campaign-${this.id}" data-id=${this.id}></l1>
+        return(`<li class="campaign-container" id="campaign-${this.id}" data-id=${this.id}></l1>
             <span>${this.name}</span>
             <span>${this.description}</span> 
             <span>${this.goal}</span> 
             <button data-action='display'>Display Donations</button>
-            <button data-action='donate'>Donate</button>
+            <button id="donate-button" data-action='donate'>Donate</button>
             <button data-action='edit'>Edit</button> 
             <button data-action='delete'>X</button>
         </li>`

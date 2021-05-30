@@ -3,17 +3,15 @@ class CampaignForm {
     constructor() {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleEditDelete = this.handleEditDelete.bind(this)
+        this.donateFormExists = false
     }
 
     addCreateForm(){
         const formContainer = document.getElementById("form-container")
         const form = document.createElement('form')
-        form.innerHTML = `<input id="name-input" placeholder='name' type='text'/>
-            <input id="description-input" placeholder='description' type='text'/><br>
-            <input id="goal-input" placeholder='goal' type='text'/><br><input id="campaign-submit" value='Create Campaign' type='submit'/>`
-        // const input = document.createElement('input');
-        // input.setAttribute('type', 'text')
-        // input.type = "text"
+        form.innerHTML = `<h3> Campaign Name: <input id="name-input" placeholder='Campaign Name...' type='text' class="text-input"/></h3>
+            <h3> Description: <input id="description-input" placeholder='What is your purpose?' type='text' class="text-input"/></h3>
+            <h3> Goal: <input id="goal-input" placeholder='Goal...' type='text' class="text-input"/><br><input id="campaign-submit" value='Create Campaign' type='submit' class="btn modal-btn"/></h3>`
         formContainer.append(form)
     
         form.addEventListener("submit", this.handleSubmit)
@@ -32,10 +30,10 @@ class CampaignForm {
         }
     }
     listenEditDelete(){
-        const campaignsContainer = document.getElementById("campaigns-container");
+        const campaignsContainer = document.getElementById("campaigns-container")
         campaignsContainer.addEventListener("click", this.handleEditDelete)
     }
-    
+
     handleEditDelete(e){
         const li = e.target.parentElement
         const action = e.target.dataset.action
@@ -55,7 +53,6 @@ class CampaignForm {
         }
         else if(action === "display") {
             if(currentDonations) {
-                console.log("none!!!")
                 currentDonations.style.display=`none`
                 currentDonations = false
             }
@@ -66,7 +63,10 @@ class CampaignForm {
             }
         }
         else if(action === "donate") {
-           new DonationForm(li).renderForm()
+            const donationF = document.getElementById(`f-${li.dataset.id}`)
+            if (!donationF) {
+                new DonationForm(li).renderForm()
+            }
         }
     }
 }
