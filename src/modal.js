@@ -14,9 +14,9 @@ const modalbtn2 = document.querySelector(".modal-btn2")
 const modal2 = document.querySelector(".modal-overlay2")
 const closeBtn2 = document.querySelectorAll(".close-btn")[1]
 
-modalbtn.addEventListener("click", function() {
+/* modalbtn.addEventListener("click", function() {
     modal2.classList.add("open-modal")
-})
+}) */
 
 closeBtn2.addEventListener("click", function(){
     modal2.classList.remove("open-modal")
