@@ -40,27 +40,28 @@ class Campaign {
         const li = document.getElementById(`campaign-${this.id}`)
         const ul = document.createElement('ul')
 
-        if (this.donations != []) { 
+        if (this.donations.length > 0) { 
                 let total = 0
                 this.donations.forEach(function(donation) {
                     total = total + donation.price;
                   })
-                // for(let i=0;i<this.donations.length;i++){
-                //     i
-                //     if(isNaN(this.donations.[i])){
-                //         continue;
-                //          }
-                //     total += (this.donations.price[i])
-                //    }
-                 console.log(total)
-                 total.toString
-                 ul.innerHTML = `Total Raised: $${total}`
-                 li.append(ul)
+                console.log(total)
+                total.toString
+                ul.innerHTML = `Total Raised: $${total}`
+                li.append(ul)
+                if (this.goal <= total) {
+                    ul.innerHTML = `Goal Reached!!!`
+                    li.append(ul)
+                }
+                this.donations.forEach(d => ul.innerHTML += d.render())
+                li.append(ul)
+                currentDonations = ul 
             }
+        else {
+            ul.innerHTML = ` There are currently no donations... `
             li.append(ul)
-            this.donations.forEach(d => ul.innerHTML += d.render())
-            li.append(ul)
-            currentDonations = ul 
+            currentDonations = ul
+        }
         } 
     }
 

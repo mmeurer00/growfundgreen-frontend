@@ -69,7 +69,7 @@ Global Styles
 } 
 body {
   font-family: var(--ff-secondary);
-  background: url("https://cdn.techexplorist.com/wp-content/uploads/2017/06/ocean-pollution.jpg");
+  background: url("https://naturecode.org/wp-content/uploads/2019/12/Ocean-Crisis.jpg") center/cover no-repeat;
   background-attachment: fixed;
   color: var(--clr-grey-1);
   line-height: 1.5;
@@ -104,7 +104,7 @@ h1 {
 }
 h2 {
   font-size: 3rem;
-  color: var(--clr-grey-8);
+  color: var(--clr-grey-2);
   --spacing: 0.25rem;
 }
 h3 {

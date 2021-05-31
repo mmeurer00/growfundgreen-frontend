@@ -17,6 +17,7 @@ ul {
     position: center;
     text-align: center;
     max-width: 500px;
+    border-radius: var(--radius);
 }
 
 .my-btn {
@@ -28,3 +29,7 @@ ul {
   .my-btn:hover {
     background: transparent;
     color: var(--clr-primary-5);
+  }
+.card {
+  border-radius: var(--radius);
+}
