@@ -48,9 +48,9 @@ class CampaignForm {
             // button -> updatecampaign
             document.getElementById('campaign-submit').value = "Update"
             // populate input with name of campaign
-            document.getElementById('name-input').value = li.children[0].innerHTML
-            document.getElementById('description-input').value = li.children[1].innerHTML           
-            document.getElementById('goal-input').value = li.children[2].innerHTML
+            document.getElementById('name-input').value = li.children[1].innerHTML
+            document.getElementById('description-input').value = li.children[2].innerHTML           
+            document.getElementById('goal-input').value = li.children[3].innerHTML
             // submit edit button, update campaign (in different function)
         }
         else if(action === "display") {

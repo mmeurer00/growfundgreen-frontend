@@ -69,7 +69,7 @@ Global Styles
 } 
 body {
   font-family: var(--ff-secondary);
-  background: url("https://chinadialogueocean.net/wp-content/uploads/2018/02/ThinkstockPhotos-642258728-1440x720.jpg");
+  background: url("https://cdn.techexplorist.com/wp-content/uploads/2017/06/ocean-pollution.jpg");
   background-attachment: fixed;
   color: var(--clr-grey-1);
   line-height: 1.5;
@@ -99,10 +99,13 @@ h4 {
   font-family: var(--ff-primary);
 }
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  color: var( --clr-primary-1);
 }
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
+  color: var(--clr-grey-8);
+  --spacing: 0.25rem;
 }
 h3 {
   font-size: 1.25rem;

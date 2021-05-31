@@ -16,9 +16,11 @@ class Campaign {
     render() {
         // getting html
         return(`<li class="campaign-container" id="campaign-${this.id}" data-id=${this.id}>
+            <br>
             <h3>${this.name}</h3>
-            <h4 Purpose:> ${this.description} </h4> 
-            <h4 Goal: $> ${this.goal} </h4> 
+            Purpose:
+            <h4>${this.description} </h4> 
+            Goal: $<span>${this.goal}</span>
             <br>
             <button data-action='display' class="btn my-btn">Display Donations</button>
             <button data-action='donate' class="btn modal-btn2">Donate</button><br>
