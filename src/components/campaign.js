@@ -19,6 +19,7 @@ class Campaign {
             <span>${this.name}</span>
             <span>${this.description}</span> 
             <span>${this.goal}</span> 
+            <br>
             <button data-action='display' class="btn modal-btn">Display Donations</button>
             <button data-action='donate' class="btn modal-btn2">Donate</button>
             <button data-action='edit' class="btn modal-btn">Edit</button> 
@@ -34,13 +35,30 @@ class Campaign {
     }
 
     renderDonations(){
-        if (this.donations != []) { 
-            const li = document.getElementById(`campaign-${this.id}`)
-            const ul = document.createElement('ul')
+        const li = document.getElementById(`campaign-${this.id}`)
+        const ul = document.createElement('ul')
 
+        if (this.donations != []) { 
+                let total = 0
+                this.donations.forEach(function(donation) {
+                    total = total + donation.price;
+                  })
+                // for(let i=0;i<this.donations.length;i++){
+                //     i
+                //     if(isNaN(this.donations.[i])){
+                //         continue;
+                //          }
+                //     total += (this.donations.price[i])
+                //    }
+                 console.log(total)
+                 total.toString
+                 ul.innerHTML = `Total Raised: $${total}`
+                 li.append(ul)
+            }
+            li.append(ul)
             this.donations.forEach(d => ul.innerHTML += d.render())
             li.append(ul)
             currentDonations = ul 
-        }
+        } 
     }
-}
+

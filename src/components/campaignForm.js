@@ -41,8 +41,10 @@ class CampaignForm {
             // delete this campaign from backend
             growFundGreenAdapter.deleteCampaign(li)
         } else if (action === "edit") {
+            const modal = document.querySelector(".modal-overlay")  
             // editmode -> li
             editMode = li
+            modal.classList.add("open-modal")
             // button -> updatecampaign
             document.getElementById('campaign-submit').value = "Update"
             // populate input with name of campaign
