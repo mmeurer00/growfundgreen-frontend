@@ -15,15 +15,15 @@ class Campaign {
 
     render() {
         // getting html
-        return(`<li class="campaign-container" id="campaign-${this.id}" data-id=${this.id}></l1>
-            <span>${this.name}</span>
-            <span>${this.description}</span> 
-            <span>${this.goal}</span> 
+        return(`<li class="campaign-container" id="campaign-${this.id}" data-id=${this.id}>
+            <h3>${this.name}</h3>
+            <h4 Purpose:> ${this.description} </h4> 
+            <h4 Goal: $> ${this.goal} </h4> 
             <br>
-            <button data-action='display' class="btn modal-btn">Display Donations</button>
-            <button data-action='donate' class="btn modal-btn2">Donate</button>
-            <button data-action='edit' class="btn modal-btn">Edit</button> 
-            <button data-action='delete' class="btn modal-btn">X</button>
+            <button data-action='display' class="btn my-btn">Display Donations</button>
+            <button data-action='donate' class="btn modal-btn2">Donate</button><br>
+            <button data-action='edit' class="btn my-btn">Edit</button> 
+            <button data-action='delete' class="btn my-btn"> X </button>
         </li>`
         )
     }
