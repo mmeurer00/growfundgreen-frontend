@@ -12,13 +12,7 @@ class Donation {
     }
     render(){
         return(
-            `<li>${this.price} - ${this.comment}</li>`
+            `<li>$${this.price} - ${this.comment}</li>`
         )
-    }
-
-    totalDonated(){
-        var total = []
-        total += this.price
-        return total
     }
 }
