@@ -30,9 +30,9 @@ user@Users-MacBook_Air growfundgreen-frontend %
 user@Users-MacBook_Air growfundgreen-frontend % open index.html
 ```
 
-Congrats 🎉 you can raise awareness and funds for awesome causes! 
+Congrats 🎉  you can raise awareness and funds for awesome causes! 
 
-*Note: If you have not yet cloned and opened the rails server from Grow Fund Green [Backend](https://github.com/mmeurer00/growfundgreen), the application will not work properly*
+*Note: If you have not yet cloned and opened the rails server from Grow Fund Green [Backend](https://github.com/mmeurer00/growfundgreen), the application will not work properly.*
 
 ## <h2>Contributing 🥰 </h2> 
 
