@@ -1,6 +1,6 @@
 ## <h1>🌱 Grow Fund Green 📈</h1>
 
- Grow Fund Green is a S.P.A (Single Page Application), allowing users to create and track campaigns, as well as track donations for them. The user may also donate to other campaigns. Grow Fund Green-Front end consitst of HTML, CSS, and JavaScript, while communicating with an Ruby on Rails API on the [backend](https://github.com/mmeurer00/growfundgreen).
+ Grow Fund Green is a S.P.A (Single Page Application), allowing users to create and track campaigns, as well as track donations for them. The user may also donate to other campaigns. Grow Fund Green Frontend consitsts of HTML, CSS, and JavaScript, while communicating with an Ruby on Rails API on the [backend](https://github.com/mmeurer00/growfundgreen).
 
 
 
