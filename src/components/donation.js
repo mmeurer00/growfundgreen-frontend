@@ -10,6 +10,11 @@ class Donation {
 
         Donation.all.push(this)
     }
+    addToDom(){
+        const campaignsContainer = document.getElementById("campaigns-container")
+        campaignsContainer.innerHTML += this.render()
+    }
+    
     render(){
         return(
             `<li>$${this.price} - ${this.comment}</li>`

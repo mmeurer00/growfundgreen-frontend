@@ -103,7 +103,7 @@ class GrowFundGreenAdapter {
                 // delete li for DOM
                 li.remove()
             } else {
-                alert(data.message)
+                alert(data.errors)
             }
         })
         .catch(err => console.error(err))
@@ -117,21 +117,22 @@ class GrowFundGreenAdapter {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                comment: commentInput.value, 
-                price: priceInput.value,
+                comment: commentInput, 
+                price: priceInput,
             })   
         })
         .then(resp => resp.json())
         .then(data => {
             console.log("I'm in the second then!", data)
+            debugger
             if (data.status === 201){
                 const d = new Donation(data.donation)
                 d.addToDom()
             } else {
                 alert(data.errors)
             }
-            commentInput.value = ""
-            priceInput.value = ""
+            commentInput = ""
+            priceInput = ""
         })
        .catch(err => console.error("I'm in the catch!", err))
     }

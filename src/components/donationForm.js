@@ -12,11 +12,12 @@ class DonationForm  {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const commentInput = event.target[0]
-        const priceInput = event.target[1]
+        const commentInput = event.target[0].value
+        const priceInput = event.target[1].value
         const cId = this.li.dataset.id
         //const cId = event.srcElement.id.split("-")[1]
         console.log(cId)
+        debugger
         growFundGreenAdapter.createDonation(commentInput, priceInput, cId)
     }
     addDonationForm() {
@@ -27,9 +28,12 @@ class DonationForm  {
         dForm.id = `f-${cId}`
         dForm.innerHTML = `<h2> Submit your Donation for "${this.li.children[1].innerHTML}":</h2> <h3>Comment: <input id="comment-input-${cId}" placeholder='comment' type='text' class="text-input"/></h3>
         <h3>Price: <input id="price-input-${cId}" placeholder='price' type='text' class="text-input"/></h3>
-        <input id="donation-submit-${cId}" value='Donate' onClick="window.location.reload()" type='submit' class="btn btn-modal"/>`
+        <input id="donation-submit-${cId}" value='Donate' type='submit' onClick="window.location.reload()" class="btn btn-modal"/>`
         console.log(dForm)
         donationContainer.append(dForm)
         dForm.addEventListener("submit", this.handleSubmit)
     }
 }
+
+
+
