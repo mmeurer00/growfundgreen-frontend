@@ -1,13 +1,13 @@
 ## <h1>🌱 Grow Fund Green 📈</h1>
 
- Grow Fund Green is a S.P.A (Single Page Application), allowing users to create and track campaigns, as well as track donations for them. The user may also donate to other campaigns. Go Fund Green-Front end consitst of HTML, CSS, and JavaScript, while communicating with an Ruby on Rails API on the [backend](https://github.com/mmeurer00/growfundgreen).
+ Grow Fund Green is a S.P.A (Single Page Application), allowing users to create and track campaigns, as well as track donations for them. The user may also donate to other campaigns. Grow Fund Green-Front end consitst of HTML, CSS, and JavaScript, while communicating with an Ruby on Rails API on the [backend](https://github.com/mmeurer00/growfundgreen).
 
 
 
 ## <h2>Installation Instructions 📲</h2>
 
 
-Users can access  by cloning this repository.
+Users can access Grow Fund Green-**Frontend** by cloning this repository.
 
 1. Scroll up and find the green "Code" button:
 
@@ -25,14 +25,14 @@ user@Users-MacBook_Air % git clone [paste link]
 ```
 user@Users-MacBook_Air  % 
 ```
-6. Run 'bundle install' and 'rails db:migrate' in your terminal:
+6. Run 'bundle install', followed by 'rails db:migrate', in your terminal:
 ```
 user@Users-MacBook_Air  % bundle install
 
 user@Users-MacBook_Air  % rails db:migrate
 ```
 
-7. Once inside  run the program by typing 'open index.html' in your terminal:
+7. Once inside Grow Fund Green-Frontend, open the application in your browser by typing 'open index.html' in your terminal:
 ```
 user@Users-MacBook_Air  % open index.html
 ```
