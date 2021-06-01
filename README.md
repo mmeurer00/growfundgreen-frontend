@@ -21,25 +21,18 @@ Users can access Grow Fund Green-**Frontend** by cloning this repository.
 user@Users-MacBook_Air % git clone [paste link]
 ```
 
-5. Navigate to the  file.
+5. Navigate to the growfundgreen-frontend file.
 ```
-user@Users-MacBook_Air  % 
+user@Users-MacBook_Air growfundgreen-frontend % 
 ```
-6. Run 'bundle install', followed by 'rails db:migrate', in your terminal:
+6. Once inside growfundgreen-frontend, open the application in your browser by typing 'open index.html' in your terminal:
 ```
-user@Users-MacBook_Air  % bundle install
-
-user@Users-MacBook_Air  % rails db:migrate
-```
-
-7. Once inside Grow Fund Green-Frontend, open the application in your browser by typing 'open index.html' in your terminal:
-```
-user@Users-MacBook_Air  % open index.html
+user@Users-MacBook_Air growfundgreen-frontend % open index.html
 ```
 
 Congrats 🎉 you can raise awareness and funds for awesome causes! 
 
-
+*Note: If you have not yet cloned and opened the rails server from Grow Fund Green [Backend](https://github.com/mmeurer00/growfundgreen), the application will not work properly*
 
 ## <h2>Contributing 🥰 </h2> 
 
