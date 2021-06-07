@@ -16,7 +16,7 @@ class CampaignForm {
     
         form.addEventListener("submit", this.handleSubmit)
     }
-    //if passing an even listener, make an arrow function
+    
     handleSubmit = (event) => {
         event.preventDefault()
         const nameInput = event.target[0]
@@ -29,6 +29,7 @@ class CampaignForm {
             growFundGreenAdapter.createCampaign(nameInput, descInput, goalInput)
         }
     }
+    
     listenEditDelete(){
         const campaignsContainer = document.getElementById("campaigns-container")
         campaignsContainer.addEventListener("click", this.handleEditDelete)
@@ -47,13 +48,18 @@ class CampaignForm {
             modal.classList.add("open-modal")
             // button -> updatecampaign
             document.getElementById('campaign-submit').value = "Update"
-            // populate input with name of campaign
+            // populate input with campaign info
             document.getElementById('name-input').value = li.children[1].innerHTML
             document.getElementById('description-input').value = li.children[2].innerHTML           
             document.getElementById('goal-input').value = li.children[3].innerHTML
-            // submit edit button, update campaign (in different function)
+            // submit edit button, update campaign 
         }
         else if(action === "display") {
+            /* This is if/else statement is saying, "Hey, 
+            if I'm displaying donations already close out those 
+            donations hence the '.dispaly = none'. But If I'm not 
+            displaying any donations for ANY campaign yet 
+            then render donations for the campaign selected." */
             if(currentDonations) {
                 currentDonations.style.display=`none`
                 currentDonations = false
@@ -69,6 +75,7 @@ class CampaignForm {
             const donationF = document.getElementById(`f-${li.dataset.id}`)
             const modal2 = document.querySelector(".modal-overlay2")
             if (!form) {
+                // !donationF checks that a form for that specific campaign does not already exist.
                 if (!donationF) {
                     modal2.classList.add("open-modal")
                     new DonationForm(li).addDonationForm()

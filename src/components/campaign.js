@@ -18,7 +18,6 @@ class Campaign {
         return(`<li class="campaign-container" id="campaign-${this.id}" data-id=${this.id}>
             <br>
             <h3>${this.name}</h3>
-            Purpose:
             <h4>${this.description} </h4> 
             Goal: $<span>${this.goal}</span>
             <br>
@@ -47,10 +46,10 @@ class Campaign {
                   })
                 console.log(total)
                 total.toString
-                ul.innerHTML = `Total Raised: $${total}`
+                ul.innerHTML = `<br><h4>TOTAL RAISED: $${total}</h4><br>`
                 li.append(ul)
                 if (this.goal <= total) {
-                    ul.innerHTML = `Goal Reached!!!`
+                    ul.innerHTML = `<br><h4>GOAL REACHED! - TOTAL RAISED: $${total}</h4><br>`
                     li.append(ul)
                 }
                 this.donations.forEach(d => ul.innerHTML += d.render())
@@ -58,7 +57,7 @@ class Campaign {
                 currentDonations = ul 
             }
         else {
-            ul.innerHTML = ` There are currently no donations... `
+            ul.innerHTML = `<br><h4>There are currently no donations...</h4><br>`
             li.append(ul)
             currentDonations = ul
         }

@@ -16,20 +16,13 @@ class GrowFundGreenAdapter {
             })
             
         })
-        //.catch(error => console.error(erorr))
-        // function fetchCampaigns(){
-        //     fetch("http://127.0.0.1:3000/api/v1/campaigns")
-        //     .then(r => r.json())
-        //     .then(data => {
-        //         data.forEach(addCampaign)
-        //     })
-        //     .catch(err => console.warn(err))
-        }
+    }
 
     editCampaign(editMode) {
         let nameInput = document.getElementById("name-input")
         let descInput = document.getElementById("description-input")
         let goalInput = document.getElementById("goal-input")
+
         fetch(`${this.baseCampaignURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -44,7 +37,7 @@ class GrowFundGreenAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            if (data.status === 204) {
+            if (data.status === 201) {
                 editMode.children[0].innerText = 
                     data.campaign.name, 
                     data.campaign.description,
@@ -76,7 +69,7 @@ class GrowFundGreenAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log("I'm in the second then!", data)
+            console.log('data:', data)
             if (data.status === 201){
                 const c = new Campaign(data.campaign)
                 c.addToDom()
@@ -87,7 +80,7 @@ class GrowFundGreenAdapter {
             descInput.value = ""
             goalInput.value = ""
         })
-       .catch(err => console.error("I'm in the catch!", err))
+       .catch(err => console.error("Error!", err))
     }
 
     deleteCampaign(li) {
@@ -100,7 +93,7 @@ class GrowFundGreenAdapter {
         })
         .then(data => {
             if (data.message === "Successfully deleted"){
-                // delete li for DOM
+                // delete li from DOM
                 li.remove()
             } else {
                 alert(data.errors)
@@ -123,7 +116,7 @@ class GrowFundGreenAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log("I'm in the second then!", data)
+            console.log("Donation Data:", data)
             debugger
             if (data.status === 201){
                 const d = new Donation(data.donation)
@@ -134,7 +127,7 @@ class GrowFundGreenAdapter {
             commentInput = ""
             priceInput = ""
         })
-       .catch(err => console.error("I'm in the catch!", err))
+       .catch(err => console.error("Donation Error:", err))
     }
 
 }
