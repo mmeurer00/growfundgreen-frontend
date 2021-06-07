@@ -12,6 +12,7 @@ ul {
     max-width: 200px;
     border-radius: 3%;
 }
+
 .campaign-container {
     background: white;
     position: center;
@@ -26,10 +27,12 @@ ul {
     border-color: var(--clr-primary-5);
     color: var(--clr-white);
   }
+
   .my-btn:hover {
     background: transparent;
     color: var(--clr-primary-5);
   }
+
 .card {
   border-radius: var(--radius);
 }

@@ -29,7 +29,7 @@ class CampaignForm {
             growFundGreenAdapter.createCampaign(nameInput, descInput, goalInput)
         }
     }
-    
+
     listenEditDelete(){
         const campaignsContainer = document.getElementById("campaigns-container")
         campaignsContainer.addEventListener("click", this.handleEditDelete)
@@ -73,7 +73,7 @@ class CampaignForm {
         else if(action === "donate") {
             const form = document.querySelector("donation-form")
             const donationF = document.getElementById(`f-${li.dataset.id}`)
-            const modal2 = document.querySelector(".modal-overlay2")
+            const modal2 = document.querySelectorAll(".modal-overlay")[1]
             if (!form) {
                 // !donationF checks that a form for that specific campaign does not already exist.
                 if (!donationF) {
