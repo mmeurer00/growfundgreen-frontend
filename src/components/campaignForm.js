@@ -60,32 +60,30 @@ class CampaignForm {
             donations hence the '.dispaly = none'. But If I'm not 
             displaying any donations for ANY campaign yet 
             then render donations for the campaign selected." */
+            console.log("first console", currentDonations)
             if(currentDonations) {
-                currentDonations.style.display=`none`
+                if (currentDonations.style.display ===`none`) {
+                    currentDonations.style.display = "block"
+                } else {
+                    currentDonations.style.display = "none";
+                }
                 currentDonations = false
+                console.log("second console", currentDonations)
             }
             else {
-            console.log(!!currentDonations)
+            console.log("third console", !currentDonations)
             const c = Campaign.all.find(c => c.id == li.dataset.id )
             c.renderDonations()
             }
         }
         else if(action === "donate") {
             const form = document.querySelectorAll("form")
-            //const donationF = form.id
-           // console.log(donationF)
             console.log(li)
             console.log(form)
             const modal2 = document.querySelectorAll(".modal-overlay")[1]
-            // if (modal2.classList.contains("open-modal")) {
-            //     modal2.classList.remove("open-modal")
-            // } else {
-                // !donationF checks that a form for that specific campaign does not already exist.
-                //if (!donationF) {
-                    modal2.classList.add("open-modal")
-                    new DonationForm(li).addDonationForm()
-                //}
-            //}
+
+            modal2.classList.add("open-modal")
+            new DonationForm(li).addDonationForm()
         }
     }
 }
