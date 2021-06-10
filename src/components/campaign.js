@@ -7,7 +7,11 @@ class Campaign {
         this.name = name
         this.description = description
         this.goal = goal
-        this.donations = donations.map(d => new Donation(d))
+        if (donations) {
+        this.donations = donations.map(d => new Donation(d)) 
+        } else {
+            this.donations = []
+        }
 
         Campaign.all.push(this)
     }
@@ -25,6 +29,7 @@ class Campaign {
             <button data-action='donate' class="btn modal-btn">Donate</button><br>
             <button data-action='edit' class="btn my-btn">Edit</button> 
             <button data-action='delete' class="btn my-btn"> X </button>
+            <ul></ul>
             <br><br>
         </li>`
         )
@@ -38,8 +43,7 @@ class Campaign {
 
     renderDonations(){
         const li = document.getElementById(`campaign-${this.id}`)
-        const ul = document.createElement('ul')
-
+        const ul = li.querySelector('ul')
         if (this.donations.length > 0) { 
                 let total = 0
                 this.donations.forEach(function(donation) {

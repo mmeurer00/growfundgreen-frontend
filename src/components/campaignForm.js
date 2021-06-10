@@ -11,7 +11,7 @@ class CampaignForm {
         const form = document.createElement('form')
         form.innerHTML = `<h3> Campaign Name: <input id="name-input" placeholder='Campaign Name...' type='text' class="text-input"/></h3>
             <h3> Description: <input id="description-input" placeholder='What is your purpose?' type='text' class="text-input"/></h3>
-            <h3> Goal: <input id="goal-input" placeholder='Goal...' type='text' class="text-input"/><br><input id="campaign-submit" value='Create Campaign' onClick="window.location.reload()" type='submit' class="btn modal-btn"/></h3>`
+            <h3> Goal: <input id="goal-input" placeholder='Goal...' type='text' class="text-input"/><br><input id="campaign-submit" value='Create Campaign' type='submit' class="btn modal-btn"/></h3>`
         formContainer.append(form)
     
         form.addEventListener("submit", this.handleSubmit)
@@ -71,8 +71,10 @@ class CampaignForm {
             }
         }
         else if(action === "donate") {
-            const form = document.querySelector("donation-form")
-            const donationF = document.getElementById(`f-${li.dataset.id}`)
+            const form = document.getElementById("form")
+            const donationF = form
+            console.log(li)
+            console.log(form)
             const modal2 = document.querySelectorAll(".modal-overlay")[1]
             if (!form) {
                 // !donationF checks that a form for that specific campaign does not already exist.

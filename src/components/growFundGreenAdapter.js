@@ -8,7 +8,9 @@ class GrowFundGreenAdapter {
 
     getCampaigns() {
         fetch(this.baseCampaignURL)
+        // returns promise
         .then(r => r.json())
+        //handles fetch promise/return JSON object
         .then(campaigns => {
             campaigns.forEach(campaign => {
                 const c = new Campaign(campaign)
@@ -37,7 +39,7 @@ class GrowFundGreenAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            if (data.status === 201) {
+            if (data.status === 204) {
                 editMode.children[0].innerText = 
                     data.campaign.name, 
                     data.campaign.description,
@@ -51,6 +53,7 @@ class GrowFundGreenAdapter {
                 alert(data.errors)
             }
         })
+        // if a promise returns a failure
         .catch(err => console.error(err))
     }
 
@@ -69,18 +72,18 @@ class GrowFundGreenAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
+        if (data.status === 201) {
             console.log('data:', data)
-            if (data.status === 201){
                 const c = new Campaign(data.campaign)
                 c.addToDom()
-            } else {
-                alert(data.errors)
-            }
-            nameInput.value = ""
-            descInput.value = ""
-            goalInput.value = ""
+        } else {
+            alert(data.errors)
+        }
+        nameInput.value = ""
+        descInput.value = ""
+        goalInput.value = ""
         })
-       .catch(err => console.error("Error!", err))
+       //.catch(err => console.error("Error!", err))
     }
 
     deleteCampaign(li) {
@@ -117,7 +120,6 @@ class GrowFundGreenAdapter {
         .then(resp => resp.json())
         .then(data => {
             console.log("Donation Data:", data)
-            debugger
             if (data.status === 201){
                 const d = new Donation(data.donation)
                 d.addToDom()

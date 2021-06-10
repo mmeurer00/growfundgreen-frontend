@@ -12,8 +12,13 @@ class Donation {
     }
 
     addToDom(){
-        const campaignsContainer = document.getElementById("campaigns-container")
-        campaignsContainer.innerHTML += this.render()
+        const campaign = Campaign.all.find((campaign) => this.campaign_id === campaign.id)
+        
+        campaign.donations.push(this)
+        // const cId = document.getElementById(`campaign-${this.campaign_id}`)
+        // const ul = li.querySelector('ul')
+        // debugger
+        // ul.innerHTML += this.render()
     }
     
     render(){
