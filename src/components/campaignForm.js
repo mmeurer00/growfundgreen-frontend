@@ -71,18 +71,21 @@ class CampaignForm {
             }
         }
         else if(action === "donate") {
-            const form = document.getElementById("form")
-            const donationF = form
+            const form = document.querySelectorAll("form")
+            //const donationF = form.id
+           // console.log(donationF)
             console.log(li)
             console.log(form)
             const modal2 = document.querySelectorAll(".modal-overlay")[1]
-            if (!form) {
+            // if (modal2.classList.contains("open-modal")) {
+            //     modal2.classList.remove("open-modal")
+            // } else {
                 // !donationF checks that a form for that specific campaign does not already exist.
-                if (!donationF) {
+                //if (!donationF) {
                     modal2.classList.add("open-modal")
                     new DonationForm(li).addDonationForm()
-                }
-            }
+                //}
+            //}
         }
     }
 }

@@ -9,6 +9,7 @@ modalbtn.addEventListener("click", function() {
 
 closeBtn.addEventListener("click", function(){
     modal.classList.remove("open-modal")
+
 })
 
 
@@ -16,7 +17,11 @@ closeBtn.addEventListener("click", function(){
 const modalbtn2 = document.querySelectorAll(".modal-btn")[1]
 const modal2 = document.querySelectorAll(".modal-overlay")[1]
 const closeBtn2 = document.querySelectorAll(".close-btn")[1]
+const donationContainer = document.getElementById("donation-container")
 
 closeBtn2.addEventListener("click", function(){
+    const form = donationContainer.querySelector("form")
+
     modal2.classList.remove("open-modal")
+    donationContainer.removeChild(form)
 })
