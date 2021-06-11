@@ -20,10 +20,10 @@ class GrowFundGreenAdapter {
         })
     }
 
-    editCampaign(editMode) {
-        let nameInput = document.getElementById("name-input")
-        let descInput = document.getElementById("description-input")
-        let goalInput = document.getElementById("goal-input")
+    editCampaign(editMode, nameInput, descInput, goalInput) {
+        // let nameInput = document.getElementById("name-input")
+        // let descInput = document.getElementById("description-input")
+        // let goalInput = document.getElementById("goal-input")
 
         fetch(`${this.baseCampaignURL}/${editMode.dataset.id}`, {
             method: "PATCH",
@@ -40,10 +40,10 @@ class GrowFundGreenAdapter {
         .then(resp => resp.json())
         .then(data => {
             if (data.status === 204) {
-                editMode.children[0].innerText = 
+                editMode.children[0].innerText = (
                     data.campaign.name, 
                     data.campaign.description,
-                    data.campaign.goal
+                    data.campaign.goal )
                 editMode = false
                 document.getElementById('campaign-submit').value = "Create Campaign"
                 nameInput.value = ""
@@ -83,7 +83,7 @@ class GrowFundGreenAdapter {
         descInput.value = ""
         goalInput.value = ""
         })
-       //.catch(err => console.error("Error!", err))
+       .catch(err => console.error("Error!", err))
     }
 
     deleteCampaign(li) {
