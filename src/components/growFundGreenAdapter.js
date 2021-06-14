@@ -24,7 +24,7 @@ class GrowFundGreenAdapter {
         // let nameInput = document.getElementById("name-input")
         // let descInput = document.getElementById("description-input")
         // let goalInput = document.getElementById("goal-input")
-
+        // const campaignsContainer = document.getElementById("campaigns-container")
         fetch(`${this.baseCampaignURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -45,16 +45,20 @@ class GrowFundGreenAdapter {
                     data.campaign.description,
                     data.campaign.goal )
                 editMode = false
+                const c = new Campaign(data.campaign)
+                c.addToDom()
                 document.getElementById('campaign-submit').value = "Create Campaign"
                 nameInput.value = ""
                 descInput.value = ""
                 goalInput.value = ""
-            } else {
+                
+            } 
+            else {
                 alert(data.errors)
             }
         })
         // if a promise returns a failure
-        .catch(err => console.error(err))
+       //.catch(err => console.error(err))
     }
 
     createCampaign(nameInput, descInput, goalInput){

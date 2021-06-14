@@ -49,10 +49,13 @@ class CampaignForm {
             // button -> updatecampaign
             document.getElementById('campaign-submit').value = "Update"
             // populate input with campaign info
-            document.getElementById('name-input').value = li.children[1].innerHTML
-            document.getElementById('description-input').value = li.children[2].innerHTML           
-            document.getElementById('goal-input').value = li.children[3].innerHTML
+            const nameInput = document.getElementById('name-input').value = li.children[1].innerText
+            const descInput = document.getElementById('description-input').value = li.children[2].innerText       
+            const goalInput = document.getElementById('goal-input').value = li.children[3].innerText
             // submit edit button, update campaign 
+            const campaignsContainer = document.getElementById("campaigns-container")
+            campaignsContainer.removeChild(li)
+            
         }
         else if(action === "display") {
             /* This is if/else statement is saying, "Hey, 
